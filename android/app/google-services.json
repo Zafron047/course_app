@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "95380890504",
+    "firebase_url": "https://course-app-3423b-default-rtdb.firebaseio.com",
+    "project_id": "course-app-3423b",
+    "storage_bucket": "course-app-3423b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95380890504:android:38aa50c2ebd56d22d5103d",
+        "android_client_info": {
+          "package_name": "course.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDDTNLjfU0hkGoMOMdgFfql8tS_A9Aax8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
