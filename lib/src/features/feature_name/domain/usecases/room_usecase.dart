@@ -158,7 +158,7 @@ class RoomUsecase {
     String userId = user.userId;
 
     if (userId == creatorId) {
-      return repository.createRoom(roomId, roomName, creatorId, members);
+      return repository.createRoom(roomId, roomName, creatorId);
     }
   }
 

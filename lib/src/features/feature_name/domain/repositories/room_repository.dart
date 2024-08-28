@@ -39,8 +39,7 @@ abstract class RoomRepository {
   Future<void> removeFromBookList(String roomId, String bookId);
 
   // room Collection
-  Future<void> createRoom(String roomId, String roomName, String creatorId,
-      Map<String, UserRole> members);
+  Future<void> createRoom(String roomId, String roomName, String creatorId);
 
   // helper method    
   Future<bool> validateRemoveRoom(String roomId, String teacherId);
