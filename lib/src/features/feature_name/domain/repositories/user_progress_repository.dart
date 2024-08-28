@@ -1,10 +1,13 @@
-import 'package:course_app/src/features/feature_name/domain/entities/home_work.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user_progress.dart';
 
-abstract class UserProgressRepo {
-  Future<UserProgressEntity> update(HomeWorkEntity homeWork, UserProgressEntity userProgress);
-  Future<UserProgressEntity> undoUpdate(HomeWorkEntity homeWork, UserProgressEntity userProgress);
-  Future<bool> bookExist(UserProgressEntity userProgress);
-  Future<void> copyBook(HomeWorkEntity homeWork, UserProgressEntity userProgress);
-  Future<UserProgressEntity> getUserProgress(UserProgressEntity userProgress);
+abstract class UserProgressRepository {
+  Future<UserProgressEntity> updateProgress(
+      String homeWorkId, String userProgressId);
+  Future<UserProgressEntity> undoUpdate(
+      String homeWorkId, String userProgressId);
+  Future<bool> hasBook(String bookId);
+  Future<void> addBook(String bookId);
+  Future<void> addChapters(String bookId);
+  Future<void> addSections(String bookId);
+  Future<UserProgressEntity> getUserProgress(String userId, String bookId);
 }
