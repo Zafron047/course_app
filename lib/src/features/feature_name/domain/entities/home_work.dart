@@ -6,11 +6,11 @@ class HomeWorkEntity {
   final String chapterId;
   final int sectionStart;
   final int sectionEnd;
-  final Map<String, int> sectionRange;
+  Map<int, bool> sectionRange;
   final DateTime creationDate;
-  final String? teacherId;
-  final bool isReviewed;
-  final DateTime? reviewedDate;
+  String? reviewerId;
+  bool isReviewed;
+  DateTime? reviewedDate;
 
   HomeWorkEntity(
       {required this.homeWorkId,
@@ -21,8 +21,8 @@ class HomeWorkEntity {
       required this.sectionStart,
       required this.sectionEnd,
       this.sectionRange = const {},
-      this.teacherId,
-      this.isReviewed = false,
       required this.creationDate,
+      this.reviewerId,
+      this.isReviewed = false,
       this.reviewedDate});
 }
