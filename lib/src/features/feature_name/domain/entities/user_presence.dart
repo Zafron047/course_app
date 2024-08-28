@@ -1,10 +1,10 @@
-class UserStatus {
+class UserPresence {
   final bool isMember;
   final bool isInvited;
   final bool isRequested;
   final bool isBlocked;
 
-  UserStatus({
+  UserPresence({
     required this.isMember,
     required this.isInvited,
     required this.isRequested,

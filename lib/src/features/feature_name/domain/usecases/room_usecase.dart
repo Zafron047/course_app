@@ -1,8 +1,8 @@
 // import 'package:course_app/src/features/feature_name/domain/entities/room.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/room.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/user_presence.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user_role.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user_status.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/room_repository.dart';
 
 class RoomUsecase {
@@ -10,13 +10,13 @@ class RoomUsecase {
 
   RoomUsecase(this.repository);
 
-  // helper method
-  Future<UserStatus> getUserStatus(String roomId, String userField) async {
+  // redundant helper method
+  Future<UserPresence> getUserPresence(String roomId, String userField) async {
     User user = await repository.getUserDetails(userField);
     String userId = user.userId;
     String userMail = user.email;
 
-    return UserStatus(
+    return UserPresence(
       isMember: await repository.isMember(roomId, userId),
       isInvited: await repository.isInvited(roomId, userMail),
       isRequested: await repository.requested(roomId, userId),
@@ -63,17 +63,20 @@ class RoomUsecase {
     }
 
     User user = await repository.getUserDetails(userMail);
-    UserStatus status = await getUserStatus(roomId, user.userId);
+    UserPresence status = await repository.getUserPresence(roomId, user.userId);
 
-    if (status.isMember || status.isBlocked || status.isInvited) {
+    if (status.isMember || status.isInvited || status.isBlocked) {
       throw Exception(
-          'Please check the user status in room whether already a member or blocked or already invited');
+          'Please check if user is already invited or a member or blocked');
     } else if (status.isRequested) {
-      repository.removeRequest(roomId, user.userId);
-      return repository.addMember(roomId, user.userId);
+      await repository.addMember(roomId, user.userId);
+      status = await repository.getUserPresence(roomId, user.userId);
+      if (status.isMember) {
+        return await repository.removeRequest(roomId, user.userId);
+      }
     }
 
-    return repository.sendInvite(roomId, userMail);
+    return await repository.sendInvite(roomId, userMail);
   }
 
   Future<void> removeInvite(
@@ -85,13 +88,16 @@ class RoomUsecase {
 
   // requests collection
   Future<void> addRequest(String roomId, String userId) async {
-    UserStatus status = await getUserStatus(roomId, userId);
+    UserPresence status = await repository.getUserPresence(roomId, userId);
     if (status.isMember || status.isBlocked || status.isRequested) {
       throw Exception(
           'Error sending request please contact room teacher for more information');
     } else if (status.isInvited) {
-      repository.removeInvite(roomId, userId);
-      return repository.addMember(roomId, userId);
+      await repository.addMember(roomId, userId);
+      status = await repository.getUserPresence(roomId, userId);
+      if (status.isMember) {
+        return await repository.removeInvite(roomId, userId);
+      }
     }
     return repository.addRequest(roomId, userId);
   }
@@ -128,6 +134,21 @@ class RoomUsecase {
       return repository.removeFromBlockList(roomId, userId);
     }
     throw Exception('Invalid access');
+  }
+
+  // bookList collection
+  Future<void> addToBookList(
+      String roomId, String teacherId, String bookId) async {
+    if (await repository.isTeacher(roomId, teacherId)) {
+      return repository.addToBookList(roomId, bookId);
+    }
+  }
+
+  Future<void> removeFromBookList(
+      String roomId, String teacherId, String bookId) async {
+    if (await repository.isTeacher(roomId, teacherId)) {
+      return repository.removeFromBookList(roomId, bookId);
+    }
   }
 
   // room collection
