@@ -10,6 +10,7 @@ abstract class RoomRepository {
 
   // helper functions
   Future<UserPresence>getUserPresence(String roomId, String userField);
+  Future<bool> isStudent(String roomId, String userId);
   Future<bool> isMember(String roomId, String userId);
   Future<User> getUserDetails(String userField);
   Future<bool> isInvited(String roomId, String userMail);
