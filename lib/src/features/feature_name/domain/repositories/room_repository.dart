@@ -1,7 +1,6 @@
-import 'package:course_app/src/features/feature_name/domain/entities/room.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/room_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user_presence.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user_role.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/user/user_role_entity.dart';
 
 abstract class RoomRepository {
   Future<bool> isTeacher(String roomId, String teacherId);
@@ -9,17 +8,19 @@ abstract class RoomRepository {
   Future<void> privacyHandler(String roomId);
 
   // helper functions
-  Future<UserPresence>getUserPresence(String roomId, String userField);
+  Future<UserPresence> getUserPresence(
+      String roomId,
+      String
+          userField); // helper method to be defined in the data repository temporary defined in domain repository
   Future<bool> isStudent(String roomId, String userId);
   Future<bool> isMember(String roomId, String userId);
-  Future<User> getUserDetails(String userField);
   Future<bool> isInvited(String roomId, String userMail);
   Future<bool> requested(String roomId, String userId);
   Future<bool> isBlocked(String roomId, String userId);
 
   // members subcollection
   Future<void> addMember(String roomId, String userId);
-  Future<void> removeMember(String roomId, String userId);
+  Future<void> removeMember(String roomId, String teacherId);
   Future<void> changeRole(String roomId, String userId, UserRole newRole);
 
   // invites subcollection
@@ -42,7 +43,7 @@ abstract class RoomRepository {
   // room Collection
   Future<void> createRoom(String roomId, String roomName, String creatorId);
 
-  // helper method    
+  // helper method
   Future<bool> validateRemoveRoom(String roomId, String teacherId);
   Future<void> removeRoom(String roomId);
   Future<RoomEntity> getRoom(String roomId);
