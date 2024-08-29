@@ -6,5 +6,6 @@ class UserProgressEntity {
   UserProgressEntity({
     required this.userId,
     required this.bookId,
-  }) : progressId = '${userId}_$bookId';
+    required this.progressId,
+  });
 }

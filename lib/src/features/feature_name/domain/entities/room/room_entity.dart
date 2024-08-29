@@ -1,4 +1,4 @@
-import 'package:course_app/src/features/feature_name/domain/entities/user_role.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/user/user_role_entity.dart';
 
 class RoomEntity {
   final String roomId;
@@ -16,10 +16,10 @@ class RoomEntity {
     required this.roomName,
     this.isPrivate = false, // Default to false
     this.exists = true, // Default to true
-    this.members = const {}, // Default empty map
-    this.requests = const {}, // Default empty map
-    this.invites = const [], // Default empty list
-    this.blockList = const {}, // Default empty map
-    this.bookList = const {}, // Default empty map
+    this.members = const {}, // members collection
+    this.requests = const {}, // requests collection
+    this.invites = const [], // invites collection
+    this.blockList = const {}, // blockList collection
+    this.bookList = const {}, // bookList collection
   });
 }

@@ -1,13 +1,13 @@
-import 'package:course_app/src/features/feature_name/domain/entities/user_role.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/user/user_role_entity.dart';
 
-class Member {
+class MemberEntity {
   final String roomId;
   final String userId;
   final String userName;
   final String email;
   final UserRole role;
 
-  Member({
+  MemberEntity({
     required this.roomId,
     required this.userId,
     required this.userName,
