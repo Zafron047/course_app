@@ -1,5 +1,5 @@
-import 'package:course_app/src/features/feature_name/domain/entities/book.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user_progress.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/user/user_progress_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/user_progress_repository.dart';
 
 class UserProgressUsecase {
