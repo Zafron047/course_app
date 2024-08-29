@@ -1,4 +1,4 @@
-import 'package:course_app/src/features/feature_name/domain/entities/user.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/user/user_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/user_repository.dart';
 
 class UserUsecase {
