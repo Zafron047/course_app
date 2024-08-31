@@ -14,7 +14,7 @@ class RoomUsecase {
 
   // redundant helper method
   Future<UserPresence> getUserPresence(String roomId, String userField) async {
-    User user = await _userRepository.getUser(userField);
+    UserEntity user = await _userRepository.getUser(userField);
     String userId = user.userId;
     String userMail = user.email;
 
@@ -64,7 +64,7 @@ class RoomUsecase {
       throw Exception('Only teachers are allowed to invite');
     }
 
-    User user = await _userRepository.getUser(userMail);
+    UserEntity user = await _userRepository.getUser(userMail);
     UserPresence status = await _roomRepository.getUserPresence(roomId, user.userId);
 
     if (status.isMember || status.isInvited || status.isBlocked) {
@@ -156,7 +156,7 @@ class RoomUsecase {
   // room collection
   Future<void> createRoom(String roomId, String roomName, String creatorId,
       Map<String, UserRole> members) async {
-    User user = await _userRepository.getUser(creatorId);
+    UserEntity user = await _userRepository.getUser(creatorId);
     String userId = user.userId;
 
     if (userId == creatorId) {
