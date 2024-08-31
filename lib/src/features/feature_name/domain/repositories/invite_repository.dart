@@ -1,8 +1,8 @@
-import 'package:course_app/src/features/feature_name/domain/entities/room/invite_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/invites/invite_entity.dart';
 
 abstract class InviteRepository {
   /// Sends an invite to a user via email for a specific room.
-  Future<InviteEntity> sendInvite(String roomId, String email);
+  Future<InviteEntity> addInvite(String roomId, String email);
 
   /// Accepts an invite based on its unique invite ID.
   Future<void> acceptInvite(String inviteId);

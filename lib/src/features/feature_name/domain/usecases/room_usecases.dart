@@ -1,8 +1,8 @@
 // import 'package:course_app/src/features/feature_name/domain/entities/room.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/members/member_role_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/room/room_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user/user_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user_presence.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user/user_role_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/room_repository.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/user_repository.dart';
 
@@ -50,7 +50,7 @@ class RoomUsecase {
   }
 
   Future<void> changeRole(
-      String userId, String roomId, UserRole newRole) async {
+      String userId, String roomId, MemberRole newRole) async {
     if (await _roomRepository.isTeacher(roomId, userId)) {
       return _roomRepository.changeRole(userId, roomId, newRole);
     }
@@ -155,7 +155,7 @@ class RoomUsecase {
 
   // room collection
   Future<void> createRoom(String roomId, String roomName, String creatorId,
-      Map<String, UserRole> members) async {
+      Map<String, MemberRole> members) async {
     UserEntity user = await _userRepository.getUser(creatorId);
     String userId = user.userId;
 

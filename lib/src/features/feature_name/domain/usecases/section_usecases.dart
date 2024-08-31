@@ -1,4 +1,3 @@
-import 'package:course_app/src/features/feature_name/domain/entities/book/section_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/section_repository.dart';
 
 class SectionUsecases {
@@ -6,19 +5,27 @@ class SectionUsecases {
 
   SectionUsecases(this.sectionRepository);
 
-  Future<void> addSection(SectionEntity section) async {
-    return await sectionRepository.addSection(section);
+  Future<void> addSection(int sectionNo, bool isMemorrized) async {
+    return await sectionRepository.addSection(sectionNo, isMemorrized);
   }
 
-  Future<void> removeSection(String sectionId) async {
-    return await sectionRepository.removeSection(sectionId);
+  Future<void> getSection(int sectionNo) async {
+    return await sectionRepository.getSection(sectionNo);
   }
 
-  Future<void> updateSection(String sectionId) async {
-    return await sectionRepository.updateSection(sectionId);
+  Future<void> updateSection(int sectionNo) async {
+    return await sectionRepository.updateSection(sectionNo);
   }
 
-  Future<void> getSection(String sectionId) async {
-    return await sectionRepository.getSection(sectionId);
+  Future<void> removeSection(int sectionNo) async {
+    return await sectionRepository.removeSection(sectionNo);
+  }
+
+  Future<void> getSectionRange(Map<int, bool> sectionRange) async {
+    return await sectionRepository.getSectionRange(sectionRange);
+  }
+
+  Future<void> updateSectionRange(Map<int, bool> sectionRange) async {
+    return await sectionRepository.updateSectionRange(sectionRange);
   }
 }

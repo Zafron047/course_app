@@ -1,6 +1,6 @@
 import 'package:course_app/src/features/feature_name/domain/entities/room/room_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user_presence.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user/user_role_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/members/member_role_entity.dart';
 
 abstract class RoomRepository {
   Future<bool> isTeacher(String roomId, String teacherId);
@@ -21,7 +21,7 @@ abstract class RoomRepository {
   // members subcollection
   Future<void> addMember(String roomId, String userId);
   Future<void> removeMember(String roomId, String teacherId);
-  Future<void> changeRole(String roomId, String userId, UserRole newRole);
+  Future<void> changeRole(String roomId, String userId, MemberRole newRole);
 
   // invites subcollection
   Future<void> sendInvite(String roomId, String userMail);
