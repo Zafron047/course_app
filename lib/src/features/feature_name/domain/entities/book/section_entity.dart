@@ -1,11 +1,11 @@
 class SectionEntity {
+  final String chapterId;
   final int sectionId;
   final bool memorized;
-  final String chapterId;
 
   SectionEntity({
+    required this.chapterId,
     required this.sectionId,
     this.memorized = false,
-    required this.chapterId,
   });
 }
