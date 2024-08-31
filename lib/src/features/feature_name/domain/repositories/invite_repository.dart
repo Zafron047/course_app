@@ -14,8 +14,8 @@ abstract class InviteRepository {
   Future<void> cancelInvite(String inviteId);
 
   /// Retrieves all invites associated with a specific room.
-  Future<List<InviteEntity>> getRoomInvites(String roomId);
+  Future<List<InviteEntity>> getRoomInvites(String roomId); // get invitations list by room
 
   /// Retrieves all invites associated with a specific user.
-  Future<List<InviteEntity>> getUserInvites(String userId);
+  Future<List<InviteEntity>> getUserInvites(String userId); // get invitations list by user
 }

@@ -14,7 +14,7 @@ class ChapterUsecases {
     return await chapterRepository.removeChapter(chapterId);
   }
 
-  Future<void> getChapter(String chapterId) async {
+  Future<ChapterEntity> getChapter(String chapterId) async {
     return await chapterRepository.getChapter(chapterId);
   }
 }

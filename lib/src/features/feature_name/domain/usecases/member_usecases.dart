@@ -5,16 +5,16 @@ class MemberUsecases {
   final MemberRepository _memberRepository;
   MemberUsecases(this._memberRepository);
 
-  Future<void> addMember(MemberEntity member) async {
-    return await _memberRepository.addMember(member);
+  Future<MemberEntity> addMember(MemberEntity member) async {
+    return await _memberRepository.addMember(member.roomId, member.userId);
   }
 
-  Future<void> removeMember(String memberId) async {
-    return await _memberRepository.removeMember(memberId);
+  Future<void> removeMember(MemberEntity member) async {
+    return await _memberRepository.removeMember(member.roomId, member.userId);
   }
 
-  Future<void> updateMember(String memberId) async {
-    return await _memberRepository.updateMember(memberId);
+  Future<void> updateMember(MemberEntity member) async {
+    return await _memberRepository.changeRole(member.roomId, member.userId, member.role);
   }
 
   Future<MemberEntity> getMember(String memberId) async {

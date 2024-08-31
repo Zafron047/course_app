@@ -22,11 +22,11 @@ class InviteUsecases {
     return inviteRepository.cancelInvite(inviteId);
   }
 
-  Future<List<InviteEntity>> getInvitesForRoom(String roomId) {
-    return inviteRepository.getInvitesForRoom(roomId);
+  Future<List<InviteEntity>> getRoomInvites(String roomId) {
+    return inviteRepository.getRoomInvites(roomId);
   }
 
-  Future<List<InviteEntity>> getInvitesForUser(String userId) {
-    return inviteRepository.getInvitesForUser(userId);
+  Future<List<InviteEntity>> getUserInvites(String userId) {
+    return inviteRepository.getUserInvites(userId); // get invitations list by user
   }
 }
