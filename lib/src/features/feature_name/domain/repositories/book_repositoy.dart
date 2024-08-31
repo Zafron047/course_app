@@ -2,6 +2,8 @@ import 'package:course_app/src/features/feature_name/domain/entities/book/book_e
 
 abstract class BookRepository {
   Future<void> addBook(BookEntity book);
-  Future<void> removeBook(String bookId);
   Future<BookEntity> getBook(String bookId);
+  Future<List<BookEntity>> getBooks();
+  Future<BookEntity> updateBook(String bookId);
+  Future<void> removeBook(String bookId);
 }
