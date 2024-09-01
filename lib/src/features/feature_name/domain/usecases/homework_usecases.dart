@@ -1,11 +1,11 @@
 import 'package:course_app/src/features/feature_name/domain/entities/homework/homework_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/homework_repository.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/room_repository.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/user_progress_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/progress_repository.dart';
 
 class HomeworkUsecase {
   final HomeWorkRepo _homeWorkRepository;
-  final UserProgressRepository _userProgressRepository;
+  final ProgressRepository _userProgressRepository;
   final RoomRepository _roomRepository;
 
   HomeworkUsecase(this._homeWorkRepository, this._userProgressRepository,

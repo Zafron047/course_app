@@ -1,4 +1,4 @@
-import 'package:course_app/src/features/feature_name/domain/entities/room/invite_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/invites/invite_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/invite_repository.dart';
 
 class InviteUsecases {
@@ -7,7 +7,7 @@ class InviteUsecases {
   InviteUsecases(this.inviteRepository);
 
   Future<InviteEntity> sendInvite(String roomId, String email) {
-    return inviteRepository.sendInvite(roomId, email);
+    return inviteRepository.addInvite(roomId, email);
   }
 
   Future<void> acceptInvite(String inviteId) {

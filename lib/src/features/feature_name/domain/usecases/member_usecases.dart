@@ -1,4 +1,4 @@
-import 'package:course_app/src/features/feature_name/domain/entities/room/member_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/members/member_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/member_repository.dart';
 
 class MemberUsecases {
@@ -6,15 +6,15 @@ class MemberUsecases {
   MemberUsecases(this._memberRepository);
 
   Future<MemberEntity> addMember(MemberEntity member) async {
-    return await _memberRepository.addMember(member.roomId, member.userId);
+    return await _memberRepository.addMember(member.roomId, member.user.userId);
   }
 
   Future<void> removeMember(MemberEntity member) async {
-    return await _memberRepository.removeMember(member.roomId, member.userId);
+    return await _memberRepository.removeMember(member.roomId, member.user.userId);
   }
 
   Future<void> updateMember(MemberEntity member) async {
-    return await _memberRepository.changeRole(member.roomId, member.userId, member.role);
+    return await _memberRepository.changeRole(member.roomId, member.user.userId, member.role);
   }
 
   Future<MemberEntity> getMember(String memberId) async {

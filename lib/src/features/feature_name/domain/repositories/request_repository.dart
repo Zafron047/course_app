@@ -1,4 +1,4 @@
-import 'package:course_app/src/features/feature_name/domain/entities/room/request_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/requests/request_entity.dart';
 
 abstract class RequestRepository {
   Future<void> addRequest(RequestEntity request);

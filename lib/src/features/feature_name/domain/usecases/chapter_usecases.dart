@@ -1,4 +1,4 @@
-import 'package:course_app/src/features/feature_name/domain/entities/book/chapter_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/book/chapters/chapter_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/chapter_repository.dart';
 
 class ChapterUsecases {
