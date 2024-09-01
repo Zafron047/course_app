@@ -2,8 +2,8 @@
 import 'package:course_app/src/features/feature_name/domain/entities/room/members/member_role_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/room/room_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/entities/user/user_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user_presence.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/room_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/user_presence_role_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/room/room_repository.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/user_repository.dart';
 
 class RoomUsecase {

@@ -1,5 +1,5 @@
 import 'package:course_app/src/features/feature_name/domain/entities/room/members/member_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/member_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/room/members/member_repository.dart';
 
 class MemberUsecases {
   final MemberRepository _memberRepository;

@@ -1,6 +1,6 @@
 import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/progress_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/progress_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/entities/room/user_progress/progress_entity.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/Progress/user_book_progress/user_progress_repository.dart';
 
 class UserProgressUsecase {
   final ProgressRepository _userProgressRepository;

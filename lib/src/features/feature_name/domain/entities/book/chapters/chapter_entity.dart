@@ -1,9 +1,11 @@
 class ChapterEntity {
+  final String bookId;
   final int chapterNo;
   final String chapterName;
   final Map<int, bool> sections; // Map of sectionNo to bool isMemorized
 
   ChapterEntity({
+    required this.bookId,
     required this.chapterNo,
     required this.chapterName,
     this.sections = const {},

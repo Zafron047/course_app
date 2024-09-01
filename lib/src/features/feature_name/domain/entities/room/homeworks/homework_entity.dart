@@ -4,7 +4,7 @@ class HomeWorkEntity {
   final String bookId;
   final String chapterId;
   Map<int, bool> sectionRange;
-  final DateTime creationDate;
+  final DateTime creationDate = DateTime.now();
   String? reviewerId;
   bool isReviewed;
   DateTime? reviewedDate;
@@ -15,7 +15,6 @@ class HomeWorkEntity {
       required this.bookId,
       required this.chapterId,
       this.sectionRange = const {},
-      required this.creationDate,
       this.reviewerId,
       this.isReviewed = false,
       this.reviewedDate});

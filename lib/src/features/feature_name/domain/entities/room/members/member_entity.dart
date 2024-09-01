@@ -3,7 +3,7 @@ import 'package:course_app/src/features/feature_name/domain/entities/user/user_e
 
 class MemberEntity {
   final String roomId;
-  final UserEntity user; // Reference to the user
+  final UserEntity user;
   final MemberRole role;
 
   MemberEntity({

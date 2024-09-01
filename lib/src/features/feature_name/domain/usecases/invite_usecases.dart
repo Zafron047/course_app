@@ -1,5 +1,5 @@
 import 'package:course_app/src/features/feature_name/domain/entities/room/invites/invite_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/invite_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/room/invites/invite_repository.dart';
 
 class InviteUsecases {
   final InviteRepository inviteRepository;

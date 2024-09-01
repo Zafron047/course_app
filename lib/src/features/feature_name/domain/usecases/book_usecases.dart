@@ -1,5 +1,5 @@
 import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/book_repositoy.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/Book/book_repositoy.dart';
 
 class BookUsecase {
   final BookRepository _bookRepository;
