@@ -1,5 +1,5 @@
 import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/Book/book_repositoy.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/book/book_repository.dart';
 
 class BookUsecases {
   final BookRepository _bookRepository;
@@ -16,5 +16,9 @@ class BookUsecases {
 
   Future<BookEntity> getBook(String bookId) async {
     return await _bookRepository.getBook(bookId);
+  }
+
+  Future<BookEntity> editBook(String bookId) async {
+    return await _bookRepository.updateBook(bookId);
   }
 }

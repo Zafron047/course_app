@@ -1,7 +1,7 @@
 import 'package:course_app/src/features/feature_name/domain/entities/room/homeworks/homework_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/room/homeworks/homework_repository.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/room/members/member_repository.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/Progress/user_book_progress/user_book_progress_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/progress/user_book_progress/user_book_progress_repository.dart';
 
 class HomeworkUsecases {
   final HomeWorkRepo _homeWorkRepository;

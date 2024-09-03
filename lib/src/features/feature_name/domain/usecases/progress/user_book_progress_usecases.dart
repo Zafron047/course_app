@@ -1,5 +1,5 @@
-import 'package:course_app/src/features/feature_name/domain/repositories/Progress/user_book_progress/chapter_progress/chapter_progress_repository.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/Progress/user_book_progress/user_book_progress_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/progress/user_book_progress/chapter_progress/chapter_progress_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/progress/user_book_progress/user_book_progress_repository.dart';
 
 import '../../entities/user_book_progress/chapter_progress/chapter_progress_entity.dart';
 import '../../entities/user_book_progress/user_progress_entity.dart';
