@@ -7,12 +7,14 @@ abstract class MemberRepository {
   Future<bool> isTeacher(String roomId, String teacherId);
   Future<bool> isMember(String roomId, String userId);
 
-  // members subcollection
-  Future<MemberEntity> addMember(String roomId, String userId); // Create
-  Future<MemberEntity> getMember(String userId); // Read member with role.
-  Future<MemberRole> updateMember(
-      String roomId, String userId, MemberRole newRole); // Update member role
-  Future<void> removeMember(String roomId, String teacherId); // Delete
-
-  Future<List<MemberEntity>> getMembers(String roomId); // Read all members
+  // Create
+  Future<MemberEntity> addMember(String roomId, String userId);
+  // Read
+  Future<MemberEntity> getMember(String roomId, String userId);
+  Future<List<MemberEntity>> getMembers(String roomId);
+  Future<bool> isOnlyTeacherLeft(String roomId);
+  // Update
+  Future<void> updateMember(String roomId, String userId, MemberRole currentRole);
+  // Delete
+  Future<void> removeMember(String roomId, String userId);
 }

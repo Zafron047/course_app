@@ -1,10 +1,10 @@
 import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/Book/book_repositoy.dart';
 
-class BookUsecase {
+class BookUsecases {
   final BookRepository _bookRepository;
 
-  BookUsecase(this._bookRepository);
+  BookUsecases(this._bookRepository);
 
   Future<void> addBook(BookEntity book, String adminId) async {
     return await _bookRepository.addBook(book);

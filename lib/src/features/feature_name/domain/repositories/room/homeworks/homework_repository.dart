@@ -14,6 +14,6 @@ abstract class HomeWorkRepo {
   // delete
   Future<void> deleteHomeWork(String userId, String homeWorkId);
   // get
-  Future<HomeWorkEntity> getHomeWork(String userId, String roomId);
+  Future<HomeWorkEntity> getHomeWork(String homeWorkId);
   Future<List<HomeWorkEntity>> getHomeWorks(String studentId);
 }

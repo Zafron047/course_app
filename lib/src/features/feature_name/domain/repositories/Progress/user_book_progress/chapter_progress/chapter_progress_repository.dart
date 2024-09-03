@@ -1,17 +1,17 @@
-import 'package:course_app/src/features/feature_name/domain/entities/room/homeworks/homework_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/entities/user_progress/chapter_progress/chapter_progress_entity.dart';
+import '../../../../entities/room/homeworks/homework_entity.dart';
+import '../../../../entities/user_book_progress/chapter_progress/chapter_progress_entity.dart';
 
 abstract class ChapterProgressRepository {
-  // CRUD operations
-
   // create
-  Future<ChapterProgressEntity> createChapterToProgress(
+  Future<ChapterProgressEntity> createChapterProgress(
       String userId, String bookId, String chapterId);
   // read
-  Future<Map<int, bool>> getChapterFromProgress(
+  Future<ChapterProgressEntity> getChapterProgress(
       String userId, String bookId, String chapterId);
+  Future<Map<int, bool>> getChapterSections(
+      String userId, String bookId, String chapterId, Map<int, bool> sections);
   // update
-  Future<void> updateChapterInProgress(
+  Future<void> updateChapterProgress(
       String userId, String bookId, String chapterId, Map<int, bool> sections);
 
   // helper get

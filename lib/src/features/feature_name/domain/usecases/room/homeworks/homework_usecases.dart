@@ -1,14 +1,14 @@
 import 'package:course_app/src/features/feature_name/domain/entities/room/homeworks/homework_entity.dart';
 import 'package:course_app/src/features/feature_name/domain/repositories/room/homeworks/homework_repository.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/room/room_repository.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/Progress/user_book_progress/user_progress_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/room/members/member_repository.dart';
+import 'package:course_app/src/features/feature_name/domain/repositories/Progress/user_book_progress/user_book_progress_repository.dart';
 
-class HomeworkUsecase {
+class HomeworkUsecases {
   final HomeWorkRepo _homeWorkRepository;
-  final ProgressRepository _userProgressRepository;
-  final RoomRepository _roomRepository;
+  final UserBookProgressRepository _userProgressRepository;
+  final MemberRepository _roomRepository;
 
-  HomeworkUsecase(this._homeWorkRepository, this._userProgressRepository,
+  HomeworkUsecases(this._homeWorkRepository, this._userProgressRepository,
       this._roomRepository);
 
   Future<void> submitHomeWork(HomeWorkEntity homeWork) async {
@@ -16,7 +16,7 @@ class HomeworkUsecase {
         !await _userProgressRepository.isRangeValid(homeWork)) {
       throw Exception('Invalid student');
     }
-    await _homeWorkRepository.submitHomeWork(homeWork);
+    await _homeWorkRepository.createHomeWork(homeWork);
   }
 
   Future<void> acceptReview(String homeWorkId, String teacherId) async {
@@ -24,17 +24,15 @@ class HomeworkUsecase {
       // check if teacher is in the room
       throw Exception('Invalid teacher');
     }
-    await _homeWorkRepository.acceptReview(homeWorkId, teacherId);
+    await _homeWorkRepository.addReviewer(homeWorkId, teacherId);
   }
 
-  Future<void> finishReview(
-      String homeWorkId, String teacherId) async {
+  Future<void> finishReview(String homeWorkId, String teacherId) async {
     HomeWorkEntity homeWork = await _homeWorkRepository.getHomeWork(homeWorkId);
     String? reviewerId = homeWork.reviewerId;
 
     if (reviewerId != null && teacherId == reviewerId) {
-      await _userProgressRepository.updateProgress(homeWork.studentId,
-          homeWork.bookId, homeWork.chapterId, homeWork.sectionRange);
+      await _userProgressRepository.updateProgress(homeWork);
       await _homeWorkRepository.finishReview(homeWorkId);
     }
   }

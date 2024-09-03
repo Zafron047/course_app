@@ -35,13 +35,13 @@ abstract class RoomRepository {
   // Future<void> removeFromBlockList(String roomId, String userId);
 
   // bookList List
-  Future<void> addToBookList(String roomId, String bookId);
-  Future<void> removeFromBookList(String roomId, String bookId);
+  // Future<void> addToBookList(String roomId, String bookId);
+  // Future<void> removeFromBookList(String roomId, String bookId);
 
   // room Collection
   Future<void> createRoom(String roomId, String roomName, String creatorId);
   // helper method
   Future<bool> validateRemoveRoom(String roomId, String teacherId);
-  Future<void> removeRoom(String roomId);
+  Future<void> updateExistance(String roomId);
   Future<RoomEntity> getRoom(String roomId);
 }

@@ -6,10 +6,11 @@ abstract class RequestRepository {
 
   // CRUD operations
   // Create
-  Future<void> addRequest(RequestEntity request);
+  Future<void> addRequest(String roomId, String userId);
   // Read
   Future<RequestEntity> getRequest(String roomId, String userId);
   Future<List<RequestEntity>> getRoomRequests(String roomId);
   // Remove
-  Future<void> removeRequest(String roomId, String userId); // uses RemoveRequest by teacherId
+  Future<void> removeRequest(
+      String roomId, String userId); // uses RemoveRequest by teacherId
 }

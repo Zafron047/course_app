@@ -4,5 +4,5 @@ abstract class UserRepository {
   Future<bool> iscredentialsValid(String userId, String name, String email);
   Future<UserEntity> createUser(String userId, String name, String email);
   Future<void> removeUser(String userId);
-  Future<UserEntity> getUser(String userField);
+  Future<UserEntity?> getUser(String userField);
 }
