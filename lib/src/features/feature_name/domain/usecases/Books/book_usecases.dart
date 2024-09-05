@@ -1,5 +1,6 @@
-import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
-import 'package:course_app/src/features/feature_name/domain/repositories/book/book_repository.dart';
+
+import '../../entities/books/book_entity.dart';
+import '../../repositories/books/book_repository.dart';
 
 class BookUsecases {
   final BookRepository _bookRepository;

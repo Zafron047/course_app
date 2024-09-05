@@ -1,12 +1,11 @@
-import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
+import '../../../../domain/entities/books/book_entity.dart';
 
-abstract class BookRepository {
-  // CRUD operations
+abstract class BookDataSources {
   // Create
   Future<void> addBook(BookEntity book);
   // Read
   Future<BookEntity> getBook(String bookId);
-  Future<List<BookEntity>> getBooks();
+  // Future<List<BookEntity>> getBooks();
   // Update
   Future<BookEntity> updateBook(String bookId);
   // Delete

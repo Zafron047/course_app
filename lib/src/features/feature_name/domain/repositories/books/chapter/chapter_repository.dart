@@ -1,4 +1,4 @@
-import 'package:course_app/src/features/feature_name/domain/entities/book/chapters/chapter_entity.dart';
+import '../../../entities/books/chapters/chapter_entity.dart';
 
 abstract class ChapterRepository {
   Future<void> addChapter(ChapterEntity chapter);

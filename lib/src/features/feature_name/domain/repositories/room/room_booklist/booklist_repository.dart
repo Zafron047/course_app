@@ -1,4 +1,5 @@
-import 'package:course_app/src/features/feature_name/domain/entities/book/book_entity.dart';
+
+import '../../../entities/books/book_entity.dart';
 
 abstract class RoomBookListRepository {
   // create
