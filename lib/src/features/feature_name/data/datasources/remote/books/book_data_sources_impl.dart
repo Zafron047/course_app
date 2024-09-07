@@ -5,35 +5,86 @@ import '../../../../domain/entities/books/book_entity.dart';
 import 'book_data_sources.dart';
 
 class BookDataSourcesImpl implements BookDataSources {
-  final FirebaseFirestore db;
-  BookDataSourcesImpl(this.db);
+  final FirebaseFirestore _db;
+  BookDataSourcesImpl(this._db);
 
   // Create
   @override
   Future<void> addBook(BookEntity book) async {
     try {
       Map<String, dynamic> bookJson = BookModel.fromEntity(book).toJson();
-      await db.collection('books').add(bookJson);
+      await _db.collection('books').add(bookJson);
     } catch (e) {
-      print('Error adding book to Firestore: $e');
+      // ignore: avoid_print
+      print('Attention Printed error: $e');
       rethrow;
     }
   }
 
-  Future<BookEntity> getBook(String bookId) async {
-    throw UnimplementedError();
+  @override
+  Future<BookEntity?> getBook(String bookId) async {
+    try {
+      DocumentSnapshot<Map<String, dynamic>>? bookSnapShot =
+          await _db.collection('books').doc(bookId).get();
+      Map<String, dynamic>? bookData = bookSnapShot.data();
+      if (bookData == null) {
+        BookEntity? bookEntity = BookModel.fromJson(bookData!).toEntity();
+        return bookEntity;
+      }
+      return null;
+    } catch (e) {
+      print('Attention Printed error: $e');
+      rethrow;
+    }
   }
 
-  // Future<List<BookEntity>> getBooks() async {
-  //   throw UnimplementedError();
-  // }
+  @override
+  Future<List<BookEntity?>> getBooks() async {
+    try {
+      QuerySnapshot<Map<String, dynamic>?> booksSnapshot =
+          await _db.collection('books').get();
+      if (booksSnapshot.docs.isNotEmpty) {
+        List<BookEntity> books = booksSnapshot.docs
+            .map((doc) => BookModel.fromJson(doc.data()!).toEntity())
+            .toList();
+        return books;
+      }
+      return [];
+    } catch (e) {
+      print('Attention Printed error: $e');
+      rethrow;
+    }
+  }
+
   // Update
-  Future<BookEntity> updateBook(String bookId) async {
-    throw UnimplementedError();
+  @override
+  Future<BookEntity?> updateBook(String bookId, BookEntity updatedBook) async {
+    try {
+      Map<String, dynamic> bookJson =
+          BookModel.fromEntity(updatedBook).toJson();
+      await _db.collection('books').doc(bookId).update(bookJson);
+
+      DocumentSnapshot<Map<String, dynamic>> bookSnapShot =
+          await _db.collection('bookId').doc(bookId).get();
+      if (bookSnapShot.data() == null) return null;
+
+      BookEntity book = BookModel.fromJson(bookSnapShot.data()!).toEntity();
+      return book;
+    } catch (e) {
+      print('Attention Printed error: $e');
+      rethrow;
+    }
   }
 
   // Delete
+  @override
   Future<void> removeBook(String bookId) async {
-    throw UnimplementedError();
+    try {
+      final bookSnapShot = await _db.collection('books').doc(bookId).delete();
+      return bookSnapShot;
+    } catch (e) {
+      print('Attention Printed error: $e');
+      rethrow;
+    }
   }
 }

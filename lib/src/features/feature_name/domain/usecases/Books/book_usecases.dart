@@ -7,7 +7,8 @@ class BookUsecases {
 
   BookUsecases(this._bookRepository);
 
-  Future<void> addBook(BookEntity book, String adminId) async {
+  Future<void> addBook(BookEntity book, String userId) async {
+    // if (userId == adminId) {
     return await _bookRepository.addBook(book);
   }
 
@@ -15,11 +16,11 @@ class BookUsecases {
     return await _bookRepository.removeBook(bookId);
   }
 
-  Future<BookEntity> getBook(String bookId) async {
+  Future<BookEntity?> getBook(String bookId) async {
     return await _bookRepository.getBook(bookId);
   }
 
-  Future<BookEntity> editBook(String bookId) async {
-    return await _bookRepository.updateBook(bookId);
+  Future<BookEntity?> editBook(String bookId, BookEntity updatedBook) async {
+    return await _bookRepository.updateBook(bookId, updatedBook);
   }
 }

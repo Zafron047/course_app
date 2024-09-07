@@ -13,22 +13,22 @@ class BookRepositoryImpl implements BookRepository {
   }
 
   @override
-  Future<BookEntity> getBook(String bookId) async {
+  Future<BookEntity?> getBook(String bookId) async {
     return await _bookDataSource.getBook(bookId);
   }
 
   @override
-  Future<List<BookEntity>> getBooks() async {
-    throw UnimplementedError();
+  Future<List<BookEntity?>> getBooks() async {
+    return await _bookDataSource.getBooks();
   }
 
   @override
   Future<void> removeBook(String bookId) async {
     await _bookDataSource.removeBook(bookId);
   }
-
+  
   @override
-  Future<BookEntity> updateBook(String bookId) async {
-    return await _bookDataSource.updateBook(bookId);
+  Future<BookEntity?> updateBook(String bookId, BookEntity updatedBook) {
+    return _bookDataSource.updateBook(bookId, updatedBook);
   }
 }

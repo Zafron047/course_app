@@ -40,7 +40,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final _formKey = GlobalKey<FormState>();
-  final _bookIdController = TextEditingController();
+  // final _bookIdController = TextEditingController();
   final _titleController = TextEditingController();
   final _authorController = TextEditingController();
 
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _addBook() async {
     if (_formKey.currentState?.validate() ?? false) {
       final book = BookEntity(
-        bookId: _bookIdController.text,
+        // bookId: _bookIdController.text,
         title: _titleController.text,
         author: _authorController.text,
       );
@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _clearFields() {
-    _bookIdController.clear();
+    // _bookIdController.clear();
     _titleController.clear();
     _authorController.clear();
   }
@@ -93,16 +93,16 @@ class _MyHomePageState extends State<MyHomePage> {
           key: _formKey,
           child: Column(
             children: [
-              TextFormField(
-                controller: _bookIdController,
-                decoration: const InputDecoration(labelText: 'Book ID'),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter a Book ID';
-                  }
-                  return null;
-                },
-              ),
+              // TextFormField(
+              //   controller: _bookIdController,
+              //   decoration: const InputDecoration(labelText: 'Book ID'),
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty) {
+              //       return 'Please enter a Book ID';
+              //     }
+              //     return null;
+              //   },
+              // ),
               TextFormField(
                 controller: _titleController,
                 decoration: const InputDecoration(labelText: 'Title'),
